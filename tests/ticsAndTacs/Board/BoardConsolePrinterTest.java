@@ -1,8 +1,7 @@
 package ticsAndTacs.Board;
 
-import ticsAndTacs.Board.Builders.BoardBuilder;
 import ticsAndTacs.TicsTacs.Tac;
-import ticsAndTacs.TicsTacs.Tick;
+import ticsAndTacs.TicsTacs.Tic;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -38,7 +37,7 @@ public class BoardConsolePrinterTest {
     public void
     should_print_a_board_with_a_tic() {
         // given
-        board = aBoard().withA(tick()).at(0, 0).build();
+        board = aBoard().withA(tic()).at(0, 0).build();
 
         // when
         theBoardGetsPrinted();
@@ -64,7 +63,7 @@ public class BoardConsolePrinterTest {
     public void
     should_print_a_board_with_tic_and_tac() {
         // given
-        board = aBoard().withA(tick()).at(0, 1)
+        board = aBoard().withA(tic()).at(0, 1)
                 .and().withA(tac()).at(2, 0).build();
 
         // when
@@ -78,8 +77,8 @@ public class BoardConsolePrinterTest {
         return new Tac();
     }
 
-    private Tick tick() {
-        return new Tick();
+    private Tic tic() {
+        return new Tic();
     }
 
     private BoardBuilder aBoard() {

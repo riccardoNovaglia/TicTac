@@ -1,6 +1,6 @@
 package ticsAndTacs.TicsTacs;
 
-public class Tick extends Cell {
+public class Tic extends Cell {
     @Override
     public int getValue() {
         return 1;

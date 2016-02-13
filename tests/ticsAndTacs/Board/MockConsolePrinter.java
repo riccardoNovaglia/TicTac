@@ -5,7 +5,6 @@ import static org.junit.Assert.assertThat;
 
 public class MockConsolePrinter implements ConsolePrinter {
 
-
     public String printed;
 
     public void print(String toPrint) {
