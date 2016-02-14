@@ -6,8 +6,8 @@ public class BoardBuilder {
 
     private Board board = new Board();
 
-    public CellPlacer withA(Cell cell) {
-        return new CellPlacer(board, cell);
+    public CellPlacer withA(Cell.Types cellType) {
+        return new CellPlacer(board, cellType);
     }
 
     public Board build() {
@@ -22,9 +22,9 @@ public class BoardBuilder {
 
     public class CellPlacer {
         private final Board board;
-        private final Cell cell;
+        private final Cell.Types cell;
 
-        public CellPlacer(Board newBoard, Cell cell) {
+        public CellPlacer(Board newBoard, Cell.Types cell) {
             this.board = newBoard;
             this.cell = cell;
         }

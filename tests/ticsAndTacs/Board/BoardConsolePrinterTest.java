@@ -1,9 +1,8 @@
 package ticsAndTacs.Board;
 
-import ticsAndTacs.TicsTacs.Tac;
-import ticsAndTacs.TicsTacs.Tic;
 import org.junit.Before;
 import org.junit.Test;
+import ticsAndTacs.TicsTacs.Cell;
 
 public class BoardConsolePrinterTest {
 
@@ -73,12 +72,12 @@ public class BoardConsolePrinterTest {
         mockConsole.hasPrinted(someBoard());
     }
 
-    private Tac tac() {
-        return new Tac();
+    private Cell.Types tac() {
+        return Cell.Types.TAC;
     }
 
-    private Tic tic() {
-        return new Tic();
+    private Cell.Types tic() {
+        return Cell.Types.TIC;
     }
 
     private BoardBuilder aBoard() {

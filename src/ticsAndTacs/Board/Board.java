@@ -17,8 +17,8 @@ public class Board {
         return lines;
     }
 
-    public void setCell(int x, int y, Cell value) {
-        lines[x][y] = value;
+    public void setCell(int x, int y, Cell.Types type) {
+        lines[x][y].to(type);
     }
 
 }

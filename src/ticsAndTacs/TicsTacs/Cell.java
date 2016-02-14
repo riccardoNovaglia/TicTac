@@ -1,15 +1,25 @@
 package ticsAndTacs.TicsTacs;
 
-import java.util.Optional;
-
 public class Cell {
-    protected Optional<Boolean> value = Optional.empty();
+    private Types type;
+
+    public Cell() {
+        this.type = Types.EMPTY;
+    }
 
     public boolean isTac() {
-        return value.isPresent() && value.get();
+        return this.type == Types.TAC;
     }
 
     public boolean isTic() {
-        return value.isPresent() && !value.get();
+        return this.type == Types.TIC;
+    }
+
+    public void to(Types type) {
+        this.type = type;
+    }
+
+    public enum Types {
+        TIC, EMPTY, TAC
     }
 }
