@@ -1,5 +1,7 @@
-package ticsAndTacs.Board;
+package ticsAndTacs.IO.Console;
 
+import ticsAndTacs.Board.Board;
+import ticsAndTacs.IO.BoardPrinter;
 import ticsAndTacs.TicsTacs.Cell;
 
 public class BoardConsolePrinter implements BoardPrinter {

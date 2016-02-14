@@ -1,4 +1,4 @@
-package ticsAndTacs.Board;
+package ticsAndTacs.IO.Console;
 
 public class ConsolePrinterImp implements ConsolePrinter {
 

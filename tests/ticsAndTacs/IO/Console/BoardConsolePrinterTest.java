@@ -1,7 +1,9 @@
-package ticsAndTacs.Board;
+package ticsAndTacs.IO.Console;
 
 import org.junit.Before;
 import org.junit.Test;
+import ticsAndTacs.Board.Board;
+import ticsAndTacs.Board.BoardBuilder;
 import ticsAndTacs.TicsTacs.Cell;
 
 public class BoardConsolePrinterTest {

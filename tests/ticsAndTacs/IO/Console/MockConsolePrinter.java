@@ -1,4 +1,4 @@
-package ticsAndTacs.Board;
+package ticsAndTacs.IO.Console;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;

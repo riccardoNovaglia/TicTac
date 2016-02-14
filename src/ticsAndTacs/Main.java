@@ -1,4 +1,8 @@
-package ticsAndTacs.Board;
+package ticsAndTacs;
+
+import ticsAndTacs.Board.Board;
+import ticsAndTacs.IO.Console.BoardConsolePrinter;
+import ticsAndTacs.IO.Console.ConsolePrinterImp;
 
 public class Main {
 
