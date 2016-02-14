@@ -17,8 +17,20 @@ public class Board {
         return lines;
     }
 
-    public void setCell(int x, int y, Cell.Types type) {
-        lines[x][y].to(type);
+    public void setCell(int x, int y, Cell.Types type) throws IndexOutOfBoardException {
+        try {
+            lines[x][y].to(type);
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            throw new IndexOutOfBoardException(ex);
+        }
+
     }
 
+    public Cell getCellAt(int x, int y) throws IndexOutOfBoardException {
+        try {
+            return lines[x][y];
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            throw new IndexOutOfBoardException(ex);
+        }
+    }
 }

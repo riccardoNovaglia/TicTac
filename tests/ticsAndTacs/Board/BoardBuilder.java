@@ -29,7 +29,7 @@ public class BoardBuilder {
             this.cell = cell;
         }
 
-        public BoardBuilder at(int x, int y) {
+        public BoardBuilder at(int x, int y) throws IndexOutOfBoardException {
             board.setCell(x, y, cell);
             return thisBuilder();
         }

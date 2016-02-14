@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import ticsAndTacs.Board.Board;
 import ticsAndTacs.Board.BoardBuilder;
+import ticsAndTacs.Board.IndexOutOfBoardException;
 import ticsAndTacs.TicsTacs.Cell;
 
 public class BoardConsolePrinterTest {
@@ -36,7 +37,7 @@ public class BoardConsolePrinterTest {
 
     @Test
     public void
-    should_print_a_board_with_a_tic() {
+    should_print_a_board_with_a_tic() throws IndexOutOfBoardException {
         // given
         board = aBoard().withA(tic()).at(0, 0).build();
 
@@ -49,7 +50,7 @@ public class BoardConsolePrinterTest {
 
     @Test
     public void
-    should_print_a_board_with_a_tac() {
+    should_print_a_board_with_a_tac() throws IndexOutOfBoardException {
         // given
         board = aBoard().withA(tac()).at(1, 1).build();
 
@@ -62,7 +63,7 @@ public class BoardConsolePrinterTest {
 
     @Test
     public void
-    should_print_a_board_with_tic_and_tac() {
+    should_print_a_board_with_tic_and_tac() throws IndexOutOfBoardException {
         // given
         board = aBoard().withA(tic()).at(0, 1)
                 .and().withA(tac()).at(2, 0).build();

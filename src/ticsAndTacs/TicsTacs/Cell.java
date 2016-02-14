@@ -19,6 +19,10 @@ public class Cell {
         this.type = type;
     }
 
+    public Types getType() {
+        return type;
+    }
+
     public enum Types {
         TIC, EMPTY, TAC
     }
