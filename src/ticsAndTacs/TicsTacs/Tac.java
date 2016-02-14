@@ -1,8 +1,9 @@
 package ticsAndTacs.TicsTacs;
 
+import java.util.Optional;
+
 public class Tac extends Cell {
-    @Override
-    public int getValue() {
-        return 10;
+    public Tac() {
+        value = Optional.of(true);
     }
 }

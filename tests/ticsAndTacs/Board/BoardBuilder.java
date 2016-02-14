@@ -30,7 +30,7 @@ public class BoardBuilder {
         }
 
         public BoardBuilder at(int x, int y) {
-            board.setCell(x, y, cell.getValue());
+            board.setCell(x, y, cell);
             return thisBuilder();
         }
     }

@@ -1,13 +1,23 @@
 package ticsAndTacs.Board;
 
-public class Board {
-    private final int[][] lines = new int[3][3];
+import ticsAndTacs.TicsTacs.Cell;
 
-    public int[][] getLines() {
+import java.util.Arrays;
+
+public class Board {
+    private Cell[][] lines = new Cell[3][3];
+
+    public Board() {
+        for (Cell[] line : lines) {
+            Arrays.setAll(line, x -> new Cell());
+        }
+    }
+
+    public Cell[][] getLines() {
         return lines;
     }
 
-    public void setCell(int x, int y, int value) {
+    public void setCell(int x, int y, Cell value) {
         lines[x][y] = value;
     }
 

@@ -1,5 +1,7 @@
 package ticsAndTacs.Board;
 
+import ticsAndTacs.TicsTacs.Cell;
+
 public class BoardConsolePrinter implements BoardPrinter {
 
     private static final String LINE_TEMPLATE = "%s|%s|%s%n";
@@ -16,24 +18,24 @@ public class BoardConsolePrinter implements BoardPrinter {
     }
 
     private String getBoardStringRepresentation(Board board) {
-        int[][] lines = board.getLines();
+        Cell[][] lines = board.getLines();
         return String.format(boardTemplate(),
                 lineStringRepresentationFor(lines[0]),
                 lineStringRepresentationFor(lines[1]),
                 lineStringRepresentationFor(lines[2]));
     }
 
-    private String lineStringRepresentationFor(int[] line) {
+    private String lineStringRepresentationFor(Cell[] line) {
         return String.format(LINE_TEMPLATE,
                 cellStringRepresentationFor(line[0]),
                 cellStringRepresentationFor(line[1]),
                 cellStringRepresentationFor(line[2]));
     }
 
-    private String cellStringRepresentationFor(int cellValue) {
-        if (cellValue == 1) {
+    private String cellStringRepresentationFor(Cell cell) {
+        if (cell.isTic()) {
             return " x ";
-        } else if (cellValue == 10) {
+        } else if (cell.isTac()) {
             return " o ";
         } else {
             return "\t";
