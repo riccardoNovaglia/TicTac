@@ -3,8 +3,8 @@ package ticsAndTacs.Board;
 import org.junit.Test;
 import ticsAndTacs.TicsTacs.Cell;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsEqual.equalTo;
 
 public class BoardTest {
 
