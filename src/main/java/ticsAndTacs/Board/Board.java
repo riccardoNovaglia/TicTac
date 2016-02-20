@@ -1,6 +1,8 @@
 package ticsAndTacs.Board;
 
+import ticsAndTacs.Game.IllegalMoveException;
 import ticsAndTacs.TicsTacs.Cell;
+import ticsAndTacs.TicsTacs.CellNotEmptyException;
 
 import java.util.Arrays;
 
@@ -17,11 +19,15 @@ public class Board {
         return lines;
     }
 
-    public void setCell(int x, int y, Cell.Types type) throws IndexOutOfBoardException {
+    public void setCell(int x, int y, Cell.Types type) throws IllegalMoveException {
         try {
             lines[x][y].to(type);
         } catch (ArrayIndexOutOfBoundsException ex) {
-            throw new IndexOutOfBoardException(ex);
+            throw new IllegalMoveException(new IndexOutOfBoardException(ex));
+        } catch (CellNotEmptyException e) {
+            throw new IllegalMoveException(
+                    String.format("Cell (%d,%d) already occupied by %s", x, y, lines[x][y].getType()),
+                    e);
         }
 
     }

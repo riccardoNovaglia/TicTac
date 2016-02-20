@@ -1,6 +1,7 @@
 package ticsAndTacs.Board;
 
 
+import ticsAndTacs.Game.IllegalMoveException;
 import ticsAndTacs.TicsTacs.Cell;
 
 public class BoardBuilder {
@@ -30,7 +31,7 @@ public class BoardBuilder {
             this.cell = cell;
         }
 
-        public BoardBuilder at(int x, int y) throws IndexOutOfBoardException {
+        public BoardBuilder at(int x, int y) throws IllegalMoveException {
             board.setCell(x, y, cell);
             return thisBuilder();
         }

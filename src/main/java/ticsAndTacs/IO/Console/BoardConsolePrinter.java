@@ -7,7 +7,7 @@ import ticsAndTacs.TicsTacs.Cell;
 public class BoardConsolePrinter implements BoardPrinter {
 
     private static final String LINE_TEMPLATE = "%s|%s|%s%n";
-    private static final String DASHY_LINE = "---- --- ----%n";
+    private static final String DASHY_LINE = "--- --- ---%n";
     private final ConsolePrinter consolePrinter;
 
     public BoardConsolePrinter(ConsolePrinter consolePrinter) {
@@ -17,6 +17,16 @@ public class BoardConsolePrinter implements BoardPrinter {
     public void print(Board board) {
         final String boardStringRepresentation = getBoardStringRepresentation(board);
         consolePrinter.print(boardStringRepresentation);
+    }
+
+    @Override
+    public void printIllegalMoveMessage() {
+        consolePrinter.print("Woops, try again!");
+    }
+
+    @Override
+    public void promptForInput() {
+        consolePrinter.print("Please input two numbers for your move (x, y)");
     }
 
     private String getBoardStringRepresentation(Board board) {
@@ -40,7 +50,7 @@ public class BoardConsolePrinter implements BoardPrinter {
         } else if (cell.isTac()) {
             return " o ";
         } else {
-            return "\t";
+            return "   ";
         }
     }
 

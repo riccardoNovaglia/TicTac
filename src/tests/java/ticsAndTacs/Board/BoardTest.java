@@ -1,8 +1,10 @@
 package ticsAndTacs.Board;
 
 import org.junit.Test;
+import ticsAndTacs.Game.IllegalMoveException;
 import ticsAndTacs.TicsTacs.Cell;
 
+import static junit.framework.TestCase.fail;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -86,19 +88,22 @@ public class BoardTest {
 
     @Test
     public void
-    should_set_cells_types_multiple_times() throws Exception {
+    should_not_allow_to_set_cells_types_multiple_times() throws Exception {
         // given
         Board newBoard = new Board();
-
-        // when
         newBoard.setCell(1, 2, Cell.Types.TAC);
-        newBoard.setCell(1, 2, Cell.Types.TIC);
 
-        // then
-        assertThat(newBoard.getCellAt(1, 2).getType(), equalTo(Cell.Types.TIC));
+        try {
+            // when
+            newBoard.setCell(1, 2, Cell.Types.TIC);
+            // then
+            fail("Should have not allowed the cell being re-set");
+        } catch (IllegalMoveException e) {
+            assertThat(e.getMessage(), equalTo("Cell (1,2) already occupied by TAC"));
+        }
     }
 
-    @Test(expected = IndexOutOfBoardException.class)
+    @Test(expected = IllegalMoveException.class)
     public void
     should_throw_exception_if_set_cell_coordinates_are_out_of_bounds() throws Exception {
         // given
@@ -107,17 +112,18 @@ public class BoardTest {
         // when
         try {
             newBoard.setCell(-1, -1, Cell.Types.TAC);
-        } catch (IndexOutOfBoardException ex) {
+        } catch (IllegalMoveException ex) {
             // then
-            assertThat(ex.getCause().getClass(), equalTo(ArrayIndexOutOfBoundsException.class));
-            assertThat(ex.getMessage(), equalTo("Index out of bound of board. Index must be between 0 and 3"));
+            assertThat(ex.getCause().getCause().getClass(), equalTo(ArrayIndexOutOfBoundsException.class));
+            assertThat(ex.getCause().getMessage(),
+                       equalTo("Index out of bound of board. Index must be between 0 and 3"));
             throw ex;
         }
 
         // when
         try {
             newBoard.setCell(4, 4, Cell.Types.TIC);
-        } catch (IndexOutOfBoardException ex) {
+        } catch (IllegalMoveException ex) {
             // then
             assertThat(ex.getCause().getClass(), equalTo(ArrayIndexOutOfBoundsException.class));
             assertThat(ex.getMessage(), equalTo("Index out of bound of board. Index must be between 0 and 3"));

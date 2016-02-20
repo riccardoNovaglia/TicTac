@@ -1,15 +1,23 @@
 package ticsAndTacs;
 
 import ticsAndTacs.Board.Board;
+import ticsAndTacs.Game.Game;
 import ticsAndTacs.IO.Console.BoardConsolePrinter;
+import ticsAndTacs.IO.Console.ConsoleInputListener;
 import ticsAndTacs.IO.Console.ConsolePrinterImp;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Board b = new Board();
-        BoardConsolePrinter boardConsolePrinter = new BoardConsolePrinter(new ConsolePrinterImp());
+    static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-        boardConsolePrinter.print(b);
+    public static void main(String[] args) {
+        Game game = new Game(
+                new Board(),
+                new ConsoleInputListener(bufferedReader),
+                new BoardConsolePrinter(new ConsolePrinterImp()));
+        game.start();
     }
 }
