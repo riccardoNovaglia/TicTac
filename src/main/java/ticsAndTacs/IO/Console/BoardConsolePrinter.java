@@ -29,6 +29,16 @@ public class BoardConsolePrinter implements BoardPrinter {
         consolePrinter.print("Please input two numbers for your move (x, y)");
     }
 
+    @Override
+    public void printVictoryMessage(Cell.Types lastMoveType) {
+        consolePrinter.print(String.format("Congratulation %ss, you won!", lastMoveType));
+    }
+
+    @Override
+    public void printGameTerminatedMessage() {
+        consolePrinter.print("That's enough, go read the instructions and try again later.");
+    }
+
     private String getBoardStringRepresentation(Board board) {
         Cell[][] lines = board.getCells();
         return String.format(boardTemplate(),
