@@ -20,7 +20,7 @@ public class BoardTest {
         Board newBoard = new Board();
 
         // when
-        Cell[][] lines = newBoard.getLines();
+        Cell[][] lines = newBoard.getCells();
 
         // then
         assertThat(lines.length, equalTo(3));
@@ -43,7 +43,7 @@ public class BoardTest {
         Cell cell = newBoard.getCellAt(0, 0);
 
         // then
-        assertThat(cell, equalTo(newBoard.getLines()[0][0]));
+        assertThat(cell, equalTo(newBoard.getCells()[0][0]));
     }
 
     @Test(expected = IndexOutOfBoardException.class)
@@ -99,7 +99,7 @@ public class BoardTest {
             // then
             fail("Should have not allowed the cell being re-set");
         } catch (IllegalMoveException e) {
-            assertThat(e.getMessage(), equalTo("Cell (1,2) already occupied by TAC"));
+            assertThat(e.getMessage(), equalTo("Cell (2,1) already occupied by TAC"));
         }
     }
 

@@ -30,7 +30,7 @@ public class BoardConsolePrinter implements BoardPrinter {
     }
 
     private String getBoardStringRepresentation(Board board) {
-        Cell[][] lines = board.getLines();
+        Cell[][] lines = board.getCells();
         return String.format(boardTemplate(),
                 lineStringRepresentationFor(lines[0]),
                 lineStringRepresentationFor(lines[1]),

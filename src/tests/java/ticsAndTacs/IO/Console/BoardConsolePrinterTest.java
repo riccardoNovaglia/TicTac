@@ -66,8 +66,8 @@ public class BoardConsolePrinterTest {
     public void
     should_print_a_board_with_tic_and_tac() throws IndexOutOfBoardException, IllegalMoveException {
         // given
-        board = aBoard().withA(tic()).at(0, 1)
-                .and().withA(tac()).at(2, 0).build();
+        board = aBoard().withA(tic()).at(1, 0)
+                .and().withA(tac()).at(0, 2).build();
 
         // when
         theBoardGetsPrinted();
