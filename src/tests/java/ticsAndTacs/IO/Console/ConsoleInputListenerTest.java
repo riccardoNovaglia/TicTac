@@ -55,7 +55,7 @@ public class ConsoleInputListenerTest {
         Move m = reader.waitForInput();
 
         // then
-        assertThat(m.x, equalTo(moveX));
-        assertThat(m.y, equalTo(moveY));
+        assertThat(m.getX(), equalTo(moveX));
+        assertThat(m.getY(), equalTo(moveY));
     }
 }

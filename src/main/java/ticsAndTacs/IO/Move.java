@@ -1,14 +1,27 @@
 package ticsAndTacs.IO;
 
-import ticsAndTacs.TicsTacs.Cell;
-
 public class Move {
-    public int x;
-    public int y;
-    public Cell.Types type;
+    private int x;
+    private int y;
 
     public Move(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    @Override
+    public String toString() {
+        return "Move{" +
+               "x=" + x +
+               ", y=" + y +
+               '}';
     }
 }

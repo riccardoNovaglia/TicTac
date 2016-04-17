@@ -32,10 +32,10 @@ public class Game {
 
         Move selectedMove = reader.waitForInput();
 
-        selectedMove.type = turn % 2 == 0 ? Cell.Types.TAC : Cell.Types.TIC;
+        Cell.Types moveType = turn % 2 == 0 ? Cell.Types.TAC : Cell.Types.TIC;
 
         try {
-            playingBoard.setCell(selectedMove.x, selectedMove.y, selectedMove.type);
+            playingBoard.setCell(selectedMove.getX(), selectedMove.getY(), moveType);
         } catch (IllegalMoveException e) {
             writer.printIllegalMoveMessage();
             move(turn);
